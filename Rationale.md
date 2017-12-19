@@ -1,10 +1,10 @@
-# DaLaTo Rationale
+# DaLTo Rationale
 
 ## Context
 
 This project started from several observations and frustrations. I was first looking for a data representation language that would make my life easy as a developer and my users' life easier. What I had in mind was some kind of language where I could write a data schema, generate my code from it (any language... Rust, js, Scala, Haskell, ...), provide my user with a data validator and eventually some features like extracting environment variables, multiline strings, referencing data in the document, spreading your data across several files and chosing how things are merged...
 
-Obviously I couldn't find my silver bullet and decided that what was needed wasn't a new language but some tools to leverages them. DaLaTo stands for Data Language Toolkit.
+Obviously I couldn't find my silver bullet and decided that what was needed wasn't a new language but some tools to leverages them. DaLTo stands for Data Language Toolkit.
 
 ## Observations
 
