@@ -1,0 +1,6 @@
+[package]
+name = "dalato"
+version = "0.0.1"
+authors = ["Tibo <delor.thibault@gmail.com>"]
+
+[dependencies]
