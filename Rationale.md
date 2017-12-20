@@ -8,7 +8,7 @@ Obviously I couldn't find my silver bullet and decided that what was needed wasn
 
 ## Observations
 
-There is a proliferation of dataformat, here is my review of the ones I have taken a deeper look at. (Not mentionned in this list: [Hashicorp CL](https://github.com/hashicorp/hcl), [Dhall](https://github.com/dhall-lang/dhall-lang), [TOML](https://github.com/toml-lang/toml))
+There is a proliferation of data format, here is my review of the ones I have taken a deeper look at. (Not mentionned in this list: [Hashicorp CL](https://github.com/hashicorp/hcl), [Dhall](https://github.com/dhall-lang/dhall-lang), [TOML](https://github.com/toml-lang/toml))
 
 ### XML
 https://www.w3.org/XML/
@@ -56,6 +56,24 @@ The Goal of this project is to provide some tools around one or several data for
     - Allow some kind of custom processor (e.g. a processor that extracts from the environment)
     - Allow the generated code to be customizable (e.g. generate a toString method)
  - Be language agnostic to some extent. The concepts shouldn't be tide to the target language. Ideally this project could be ported to any language and reuse all the concepts.
+
+ ### What's wrong with other tools
+
+ Nothing, it just depends what you need. I believe Serde is one of the best designed library. The reasons why I won't use Serde, and other similar library in other languages are :
+  - Serde has nothing else in mind than providing a library for (de)serializing to/from Rust and abstraact over the data language.
+  - I want an engine that abstract over the data language, abstract over the schema and abstract over the programming language
+  - I want to be able to plug custom behaviour into the parsing process (Resolving environment variable, pinging a provided url, ...)
+  - I want this toolkit can be used for many different purpose:
+    - Serializing / Deserializing
+    - Generate code from schema and vice versa
+    - Generating documentation 
+    - Generating a compatible schema from sample data
+    - Validating data from schema (with some options like validating incomplete document or document with data that will be resolved only at runtime, and provide a clear report of what can go wrong)
+    - Formatting
+    - ...
+  - I want to be portable, use the existing standards as much as possible, generate parser code using the main libraries (Serde for Rust, Jackson for Java, ...)
+  - Be embeddable as a library, a build plugin, ...
+
 
  ### Sub goals 
 - Ideally we could validate HOCON document using a schema written in YAML and convert it to JSON 
